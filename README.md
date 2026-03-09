@@ -201,6 +201,44 @@ gt convoy create "Auth System" gt-x7k2m gt-p9n4q --notify
 gt convoy list
 ```
 
+### Copilot SDK Workflow
+
+**Best for:** Teams using GitHub Copilot as their coding agent runtime
+
+Gas Town integrates natively with the [GitHub Copilot SDK](https://github.com/github/copilot-sdk) via
+the `gt copilot run` command. The Copilot runner manages a long-lived SDK session, polls for mail,
+renders role-based system prompts, and executes tasks — the same workflow as Claude Code but powered
+by the Copilot CLI server.
+
+```bash
+# One-shot: execute a single task and exit
+gt copilot run --once
+
+# Worker loop: poll for mail every 15s (default)
+gt copilot run
+
+# Custom poll interval and model
+gt copilot run --poll-interval 30s --model gpt-4o
+
+# Connect to an existing Copilot CLI server
+gt copilot run --cli-url http://localhost:3000
+```
+
+**Set Copilot as your rig's default runtime** in `settings/config.json`:
+
+```json
+{
+  "runtime": {
+    "provider": "copilot",
+    "command": "gt",
+    "args": ["copilot", "run"]
+  }
+}
+```
+
+See [Copilot SDK Integration](docs/copilot-sdk.md) for the full architecture,
+all flags, session management, and security hooks.
+
 ### Minimal Mode (No Tmux)
 
 Run individual runtime instances manually. Gas Town just tracks state.
@@ -310,7 +348,10 @@ Gas Town supports multiple AI coding runtimes. Per-rig runtime settings are in `
 **Notes:**
 
 - Claude uses hooks in `.claude/settings.json` for mail injection and startup.
-- Copilot SDK uses the Copilot CLI server and runs as `gt copilot run` inside the worker workspace.
+- **Copilot SDK** uses the Copilot CLI server and runs as `gt copilot run` inside the worker workspace.
+  Sessions are persisted to `.runtime/copilot-session.json` and automatically resumed.
+  A `PreToolUse` hook enforces workspace sandboxing — tools cannot access paths outside the work directory.
+  See [Copilot SDK Integration](docs/copilot-sdk.md) for details.
 - For Codex, set `project_doc_fallback_filenames = ["CLAUDE.md"]` in
   `~/.codex/config.toml` so role instructions are picked up.
 - For runtimes without hooks (e.g., Codex), Gas Town sends a startup fallback

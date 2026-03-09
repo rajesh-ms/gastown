@@ -69,6 +69,14 @@ Ephemeral Beads destroyed after runs. Wisps are lightweight work items used for 
 ### Hook
 A special pinned Bead for each agent. The Hook is an agent's primary work queue - when work appears on your Hook, GUPP dictates you must run it.
 
+## Agent Runtimes
+
+### Agent Preset
+A named runtime configuration (e.g., `claude`, `copilot`, `gemini`, `codex`, `cursor`, `auggie`, `amp`, `opencode`). Presets define the CLI command, arguments, and environment for each supported agent backend. Set per-rig via `settings/config.json` or overridden per-sling with `--agent`.
+
+### Copilot SDK Runner
+The built-in integration with GitHub Copilot via `gt copilot run`. Uses the Go SDK (`github.com/github/copilot-sdk/go`) to manage a long-lived Copilot CLI session. The runner polls for mail, renders role-specific system prompts, and sends tasks to the Copilot model. Sessions persist to `.runtime/copilot-session.json` for resumption. See [Copilot SDK Integration](copilot-sdk.md).
+
 ## Workflow Commands
 
 ### Convoy

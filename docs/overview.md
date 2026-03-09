@@ -202,12 +202,15 @@ without waiting for confirmation. Gas Town is a steam engine - agents are piston
 
 ## Model Evaluation and A/B Testing
 
-Gas Town's attribution and work history features enable objective model comparison:
+Gas Town's attribution and work history features enable objective model comparison.
+This works across all supported runtimes — Claude Code, **Copilot SDK**, Gemini,
+Codex, Cursor, and others:
 
 ```bash
 # Deploy different models on similar tasks
 gt sling gt-abc gastown --model=claude-sonnet
-gt sling gt-def gastown --model=gpt-4
+gt sling gt-def gastown --agent=copilot
+gt sling gt-ghi gastown --model=gpt-4
 
 # Compare outcomes
 bd stats --actor=gastown/polecats/* --group-by=model
