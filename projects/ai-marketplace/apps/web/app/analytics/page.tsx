@@ -41,7 +41,7 @@ import {
   ResponsiveContainer,
 } from "recharts"
 
-// ─── Color palette (Optum brand) ─────────────────────────────────────────────
+// ─── Color palette (Enterprise brand) ─────────────────────────────────────────────
 const C = {
   orange: "#ff612b",
   orangeLight: "#ff8c5a",
@@ -274,7 +274,7 @@ export default function AnalyticsPage() {
         <div className="mb-6 flex items-start justify-between">
           <div>
             <h1 className="flex items-center gap-2 text-2xl font-semibold text-foreground">
-              <BarChart3 className="h-6 w-6 text-[var(--optum-orange)]" />
+              <BarChart3 className="h-6 w-6 text-[var(--accent)]" />
               Analytics
             </h1>
             <p className="mt-0.5 text-sm text-muted-foreground">
@@ -301,7 +301,7 @@ export default function AnalyticsPage() {
                       key={r}
                       className={cn(
                         "w-full px-3 py-2 text-left text-sm transition-colors hover:bg-secondary",
-                        dateRange === r ? "text-[var(--optum-orange)]" : "text-foreground"
+                        dateRange === r ? "text-[var(--accent)]" : "text-foreground"
                       )}
                       onClick={() => { setDateRange(r); setShowRangeMenu(false) }}
                     >
@@ -327,7 +327,7 @@ export default function AnalyticsPage() {
             trend="down"
             trendValue="−12% vs prior period"
             icon={Timer}
-            iconColor="bg-[var(--optum-orange)]/20 text-[var(--optum-orange)]"
+            iconColor="bg-[var(--accent)]/20 text-[var(--accent)]"
           />
           <KpiCard
             label="Human Review Wait"
@@ -354,7 +354,7 @@ export default function AnalyticsPage() {
             trend="up"
             trendValue="+18% vs Feb"
             icon={Activity}
-            iconColor="bg-[var(--uhg-blue)]/20 text-[var(--uhg-blue-light)]"
+            iconColor="bg-[var(--brand-primary)]/20 text-[var(--brand-secondary-light)]"
           />
         </div>
 
@@ -496,7 +496,7 @@ export default function AnalyticsPage() {
 
         {/* ── Section 3: Usage & API calls ── */}
         <SectionTitle>
-          <Activity className="h-4 w-4 text-[var(--optum-orange)]" />
+          <Activity className="h-4 w-4 text-[var(--accent)]" />
           API Usage &amp; Marketplace Adoption
         </SectionTitle>
 
@@ -557,7 +557,7 @@ export default function AnalyticsPage() {
 
         {/* ── Section 4: Asset performance ── */}
         <SectionTitle>
-          <Brain className="h-4 w-4 text-[var(--optum-orange)]" />
+          <Brain className="h-4 w-4 text-[var(--accent)]" />
           Asset Performance &amp; Reach
         </SectionTitle>
 

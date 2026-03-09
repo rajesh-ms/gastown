@@ -74,8 +74,8 @@ _MOCK_PAYER_PLANS: dict[str, dict] = {
         "avg_copay_specialist": 65,
         "avg_coinsurance": 20,
     },
-    "UHC": {
-        "full_name": "UnitedHealthcare",
+    "NHP": {
+        "full_name": "National Health",
         "plan_types": ["PPO", "HMO", "Choice Plus"],
         "avg_deductible": 1750,
         "avg_oop_max": 7500,
@@ -477,7 +477,7 @@ async def chat(request: ChatRequest) -> ChatResponse:
     ```json
     {
       "messages": [
-        {"role": "user", "content": "Verify eligibility for John Smith, DOB 1975-03-22, Member ID UHC987654321, UnitedHealthcare."}
+        {"role": "user", "content": "Verify eligibility for John Smith, DOB 1975-03-22, Member ID MBR123456789, National Health."}
       ]
     }
     ```

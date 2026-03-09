@@ -55,8 +55,8 @@ interface FabricItem {
 
 const workspaces: FabricWorkspace[] = [
   {
-    id: "ws-optum-analytics",
-    name: "Optum RCM Analytics",
+    id: "ws-Enterprise-analytics",
+    name: "Healthcare RCM Analytics",
     capacity: "F64 (64 CUs)",
     region: "East US",
     items: [
@@ -183,7 +183,7 @@ function StatusBadge({ status }: { status: ItemStatus }) {
 // ── Page ──────────────────────────────────────────────────────────────────────
 
 export default function FabricPage() {
-  const [selectedWorkspace, setSelectedWorkspace] = useState<string>("ws-optum-analytics")
+  const [selectedWorkspace, setSelectedWorkspace] = useState<string>("ws-Enterprise-analytics")
   const [typeFilter, setTypeFilter] = useState<FabricItem["type"] | "all">("all")
   const [selectedItem, setSelectedItem] = useState<FabricItem | null>(null)
 

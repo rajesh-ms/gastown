@@ -38,7 +38,7 @@ Automates patient insurance eligibility checks with structured benefit summaries
 **Try it:**
 ```
 Verify eligibility for John Smith, DOB 1975-03-22,
-Member ID UHC987654321, UnitedHealthcare. Service date 2025-06-15.
+Member ID MBR123456789, National Health. Service date 2025-06-15.
 ```
 
 ---

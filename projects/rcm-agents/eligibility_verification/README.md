@@ -24,7 +24,7 @@ Given patient demographics and insurance information, the agent:
 | BCBS      | Blue Cross Blue Shield |
 | AETNA     | Aetna                |
 | CIGNA     | Cigna                |
-| UHC       | UnitedHealthcare     |
+| NHP       | National Health     |
 | HUMANA    | Humana               |
 | MEDICAID  | Medicaid (State)     |
 | MEDICARE  | Medicare             |
@@ -89,7 +89,7 @@ AZURE_OPENAI_DEPLOYMENT_NAME=gpt-4.1
 
 ```
 Check eligibility for patient John Smith, DOB 1975-03-22,
-Member ID UHC987654321, UnitedHealthcare PPO plan.
+Member ID MBR123456789, National Health PPO plan.
 Service date is 2025-06-15, provider NPI 1234567890.
 ```
 

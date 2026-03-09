@@ -60,7 +60,7 @@ const marketplaceItems: NavItem[] = [
     href: "/models",
     icon: Brain,
     badge: "BYOM",
-    badgeColor: "bg-[var(--optum-orange)]/20 text-[var(--optum-orange)]",
+    badgeColor: "bg-[var(--accent)]/20 text-[var(--accent)]",
     description: "Governed AI models registry",
   },
 ]
@@ -265,7 +265,7 @@ function NavSection({ title, items, indent }: { title?: string; items: NavItem[]
                   "flex shrink-0 items-center justify-center rounded-lg transition-colors",
                   indent ? "h-6 w-6" : "h-8 w-8",
                   isActive
-                    ? "bg-[var(--optum-orange)]/20 text-[var(--optum-orange)]"
+                    ? "bg-[var(--accent)]/20 text-[var(--accent)]"
                     : "bg-secondary/50 text-muted-foreground group-hover:text-foreground"
                 )}>
                   <Icon className={indent ? "h-3.5 w-3.5" : "h-4 w-4"} />
@@ -289,7 +289,7 @@ function NavSection({ title, items, indent }: { title?: string; items: NavItem[]
                   )}
                 </div>
                 {isActive && (
-                  <ChevronRight className="h-4 w-4 text-[var(--optum-orange)]" />
+                  <ChevronRight className="h-4 w-4 text-[var(--accent)]" />
                 )}
               </Link>
             </li>
@@ -464,7 +464,7 @@ function UserSection() {
     <div className="rounded-lg border border-border bg-secondary/30 p-3">
       <div className="flex items-center gap-2.5">
         {/* Avatar */}
-        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[var(--optum-orange)]/20 text-xs font-bold text-[var(--optum-orange)]">
+        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[var(--accent)]/20 text-xs font-bold text-[var(--accent)]">
           {initials}
         </div>
         {/* Name + email */}
@@ -581,12 +581,12 @@ export function AppSidebar() {
     <aside className="fixed left-0 top-0 z-40 flex h-screen w-64 flex-col border-r border-border bg-sidebar">
       {/* Logo */}
       <div className="flex h-16 items-center gap-3 border-b border-border px-4">
-        <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-[var(--optum-orange)] to-[var(--optum-orange-light)]">
+        <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-[var(--accent)] to-[var(--accent-light)]">
           <Building2 className="h-5 w-5 text-white" />
         </div>
         <div className="flex flex-col">
           <span className="text-sm font-bold text-foreground tracking-tight">AI Asset Marketplace</span>
-          <span className="text-xs text-muted-foreground">Optum RCM Platform</span>
+          <span className="text-xs text-muted-foreground">AI Marketplace Platform</span>
         </div>
       </div>
       

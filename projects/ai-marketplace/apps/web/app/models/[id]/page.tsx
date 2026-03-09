@@ -89,8 +89,8 @@ export default function ModelDetailPage({ params }: { params: Promise<{ id: stri
             {/* Header card */}
             <div className="rounded-xl border border-border bg-card p-6">
               <div className="flex items-start gap-4">
-                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[var(--optum-orange)]/20 to-[var(--uhg-blue)]/20">
-                  <Brain className="h-8 w-8 text-[var(--optum-orange)]" />
+                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[var(--accent)]/20 to-[var(--brand-primary)]/20">
+                  <Brain className="h-8 w-8 text-[var(--accent)]" />
                 </div>
                 <div className="flex-1">
                   <div className="mb-1 flex flex-wrap items-center gap-2">
@@ -106,7 +106,7 @@ export default function ModelDetailPage({ params }: { params: Promise<{ id: stri
                     {model.version} · by{" "}
                     <span className="text-foreground">{model.publisher}</span>
                     {model.publisherVerified && (
-                      <CheckCircle2 className="ml-1 inline h-3.5 w-3.5 text-[var(--optum-orange)]" />
+                      <CheckCircle2 className="ml-1 inline h-3.5 w-3.5 text-[var(--accent)]" />
                     )}
                   </p>
                   <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
@@ -164,7 +164,7 @@ export default function ModelDetailPage({ params }: { params: Promise<{ id: stri
                     className={cn(
                       "flex items-center gap-2 px-5 py-3.5 text-sm font-medium transition-colors border-b-2 -mb-px",
                       activeTab === tab.id
-                        ? "border-[var(--optum-orange)] text-foreground"
+                        ? "border-[var(--accent)] text-foreground"
                         : "border-transparent text-muted-foreground hover:text-foreground"
                     )}
                   >
@@ -218,7 +218,7 @@ export default function ModelDetailPage({ params }: { params: Promise<{ id: stri
                 {/* Model Card Tab */}
                 {activeTab === "model-card" && (
                   <div className="space-y-6">
-                    <div className="rounded-lg border border-[var(--optum-orange)]/30 bg-[var(--optum-orange)]/5 p-4">
+                    <div className="rounded-lg border border-[var(--accent)]/30 bg-[var(--accent)]/5 p-4">
                       <h3 className="mb-1 text-sm font-semibold text-foreground">Model Report Card</h3>
                       <p className="text-xs text-muted-foreground">
                         Governance-approved documentation for production use. HIPAA & SOC2 reviewed.
@@ -230,17 +230,17 @@ export default function ModelDetailPage({ params }: { params: Promise<{ id: stri
                       <h3 className="mb-3 text-base font-medium text-foreground">Performance Benchmarks</h3>
                       <div className="grid grid-cols-3 gap-4">
                         <div className="rounded-xl border border-border bg-secondary/30 p-4 text-center">
-                          <Zap className="mx-auto mb-1 h-5 w-5 text-[var(--optum-orange)]" />
+                          <Zap className="mx-auto mb-1 h-5 w-5 text-[var(--accent)]" />
                           <p className="text-2xl font-bold text-emerald-400">{model.metrics.accuracy}%</p>
                           <p className="text-xs text-muted-foreground">Accuracy</p>
                         </div>
                         <div className="rounded-xl border border-border bg-secondary/30 p-4 text-center">
-                          <Activity className="mx-auto mb-1 h-5 w-5 text-[var(--uhg-blue-light)]" />
+                          <Activity className="mx-auto mb-1 h-5 w-5 text-[var(--brand-secondary-light)]" />
                           <p className="text-2xl font-bold text-foreground">{model.metrics.latency}ms</p>
                           <p className="text-xs text-muted-foreground">P95 Latency</p>
                         </div>
                         <div className="rounded-xl border border-border bg-secondary/30 p-4 text-center">
-                          <Cpu className="mx-auto mb-1 h-5 w-5 text-[var(--optum-teal)]" />
+                          <Cpu className="mx-auto mb-1 h-5 w-5 text-[var(--brand-teal)]" />
                           <p className="text-2xl font-bold text-foreground">{model.metrics.throughput}</p>
                           <p className="text-xs text-muted-foreground">Req/min</p>
                         </div>
@@ -257,7 +257,7 @@ export default function ModelDetailPage({ params }: { params: Promise<{ id: stri
                             className="flex items-center justify-between rounded-lg border border-border bg-card p-3"
                           >
                             <div className="flex items-center gap-2">
-                              <Shield className="h-4 w-4 text-[var(--optum-orange)]" />
+                              <Shield className="h-4 w-4 text-[var(--accent)]" />
                               <span className="text-sm font-medium text-foreground">{badge}</span>
                             </div>
                             <span className="flex items-center gap-1 text-xs text-emerald-400">
@@ -274,7 +274,7 @@ export default function ModelDetailPage({ params }: { params: Promise<{ id: stri
                       <h3 className="mb-3 text-base font-medium text-foreground">Intended Use</h3>
                       <div className="rounded-lg border border-border bg-secondary/30 p-4 text-sm text-muted-foreground">
                         <p>
-                          This model is designed for use within Optum RCM healthcare workflows. It is NOT intended
+                          This model is designed for use within Healthcare RCM healthcare workflows. It is NOT intended
                           for use in direct clinical decision-making, emergency care, or as a standalone diagnostic tool.
                           All outputs should be reviewed by qualified healthcare professionals.
                         </p>
@@ -397,7 +397,7 @@ console.log(response.result);`}</pre>
             {/* Actions */}
             <div className="rounded-xl border border-border bg-card p-4 space-y-3">
               <Link href={`/orchestration?add=${model.id}`}>
-                <Button className="w-full bg-[var(--optum-orange)] hover:bg-[var(--optum-orange-light)] text-white">
+                <Button className="w-full bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white">
                   Add to Workflow
                 </Button>
               </Link>

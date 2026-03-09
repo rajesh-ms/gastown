@@ -92,4 +92,4 @@ azd up   # provisions infra + deploys apps
 
 ## Related PRD
 
-See [projects/prd/UHGAIMarketPlace.md](../prd/UHGAIMarketPlace.md) for full requirements.
+See product requirements documentation for full requirements.

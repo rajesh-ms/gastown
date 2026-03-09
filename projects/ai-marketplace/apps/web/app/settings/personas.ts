@@ -1,5 +1,5 @@
 // Persona catalog shared across all settings sub-pages.
-// Three tiers: First Party (Optum), Second Party (Provider), Third Party (Ecosystem Partners)
+// Three tiers: First Party (Enterprise), Second Party (Provider), Third Party (Ecosystem Partners)
 
 export type PersonaId =
   // First party
@@ -50,13 +50,13 @@ export interface PersonaTier {
 export const PERSONA_TIERS: PersonaTier[] = [
   {
     tier: 1,
-    label: "First Party — Optum",
-    shortLabel: "Optum",
+    label: "First Party — Enterprise",
+    shortLabel: "demo-tenant",
     color: "orange",
-    borderColor: "border-[var(--optum-orange)]/40",
-    bgColor: "bg-[var(--optum-orange)]/10",
-    textColor: "text-[var(--optum-orange)]",
-    badgeColor: "bg-[var(--optum-orange)]/20 text-[var(--optum-orange)]",
+    borderColor: "border-[var(--accent)]/40",
+    bgColor: "bg-[var(--accent)]/10",
+    textColor: "text-[var(--accent)]",
+    badgeColor: "bg-[var(--accent)]/20 text-[var(--accent)]",
     personas: [
       {
         id: "data-engineer",
@@ -275,7 +275,7 @@ export const SETTINGS_CATALOG: PersonaSettings[] = [
       { key: "acr_endpoint", label: "Container Registry", description: "Azure Container Registry login server", type: "text", defaultValue: "aimktacrp7a65r22.azurecr.io", group: "Containers" },
       { key: "k8s_cluster", label: "AKS Cluster", description: "Primary Kubernetes cluster for workload deployments", type: "text", defaultValue: "aimarket-aks-dev", group: "Kubernetes" },
       { key: "cicd_platform", label: "CI/CD Platform", description: "Pipeline orchestration system in use", type: "select", defaultValue: "Azure DevOps", options: ["Azure DevOps", "GitHub Actions", "Jenkins", "CircleCI"], group: "CI/CD" },
-      { key: "artifact_feed", label: "Artifact Feed URL", description: "Azure Artifacts or npm/PyPI feed for packages", type: "text", defaultValue: "https://pkgs.dev.azure.com/optum/aimarket/_packaging/ai-assets/npm/registry/", group: "CI/CD" },
+      { key: "artifact_feed", label: "Artifact Feed URL", description: "Azure Artifacts or npm/PyPI feed for packages", type: "text", defaultValue: "https://pkgs.dev.azure.com/Enterprise/aimarket/_packaging/ai-assets/npm/registry/", group: "CI/CD" },
       { key: "infra_as_code", label: "IaC Framework", description: "Infrastructure provisioning toolchain", type: "select", defaultValue: "Bicep", options: ["Bicep", "Terraform", "ARM Templates", "Pulumi"], group: "IaC" },
       { key: "gitops_enabled", label: "GitOps Mode", description: "Enable GitOps-driven reconciliation via Flux or ArgoCD", type: "toggle", defaultValue: true, group: "Kubernetes" },
     ],
@@ -330,7 +330,7 @@ export const SETTINGS_CATALOG: PersonaSettings[] = [
       { key: "azure_region", label: "Azure Region", description: "Primary deployment region", type: "readonly", defaultValue: "East US", group: "Environment" },
       { key: "subscription_id", label: "Subscription", description: "Azure subscription in use", type: "readonly", defaultValue: "a7fecb91-4553-…", group: "Environment" },
       { key: "active_services", label: "Active Services", description: "Number of platform services currently running", type: "readonly", defaultValue: "12 of 14", group: "Services" },
-      { key: "roadmap_link", label: "Roadmap Board", description: "Link to the product roadmap (Azure DevOps Board)", type: "text", defaultValue: "https://dev.azure.com/optum/aimarket/_boards/board", group: "Planning" },
+      { key: "roadmap_link", label: "Roadmap Board", description: "Link to the product roadmap (Azure DevOps Board)", type: "text", defaultValue: "https://dev.azure.com/Enterprise/aimarket/_boards/board", group: "Planning" },
     ],
   },
   // Remaining personas — infrastructure
@@ -366,7 +366,7 @@ export const SETTINGS_CATALOG: PersonaSettings[] = [
     fields: [
       { key: "api_gateway_url", label: "API Gateway URL", description: "Base URL for all platform REST APIs", type: "text", defaultValue: "https://ai-marketplace-api-dev.azurewebsites.net", group: "API" },
       { key: "apim_subscription_key", label: "APIM Subscription Key Header", description: "Custom header for APIM subscription key", type: "text", defaultValue: "Ocp-Apim-Subscription-Key", group: "API" },
-      { key: "sdk_feed", label: "SDK Package Feed", description: "npm/PyPI feed URL for @optum/ai-marketplace SDK", type: "text", defaultValue: "https://pkgs.dev.azure.com/optum/aimarket/_packaging/ai-assets/npm/registry/", group: "SDK" },
+      { key: "sdk_feed", label: "SDK Package Feed", description: "npm/PyPI feed URL for @Enterprise/ai-marketplace SDK", type: "text", defaultValue: "https://pkgs.dev.azure.com/Enterprise/aimarket/_packaging/ai-assets/npm/registry/", group: "SDK" },
       { key: "webhook_endpoint", label: "Webhook Destination", description: "Your endpoint to receive platform event webhooks", type: "text", defaultValue: "", group: "Events" },
     ],
   },
@@ -376,7 +376,7 @@ export const SETTINGS_CATALOG: PersonaSettings[] = [
     title: "Plugin & Connector Infrastructure",
     description: "Configure plugin repository, connector storage, and extension SDK endpoints.",
     fields: [
-      { key: "plugin_registry_url", label: "Plugin Registry", description: "URL of the platform plugin registry", type: "text", defaultValue: "https://plugins.ai-marketplace.optum.com", group: "Plugins" },
+      { key: "plugin_registry_url", label: "Plugin Registry", description: "URL of the platform plugin registry", type: "text", defaultValue: "https://plugins.ai-marketplace.Enterprise.com", group: "Plugins" },
       { key: "connector_storage", label: "Connector Storage Account", description: "Storage account for connector bundles", type: "text", defaultValue: "aimarket-connectors-dev", group: "Storage" },
       { key: "extension_sdk_version", label: "Extension SDK Version", description: "Minimum supported extension SDK version", type: "select", defaultValue: "v2.3.0", options: ["v2.3.0", "v2.2.1", "v2.1.0"], group: "SDK" },
     ],
@@ -452,7 +452,7 @@ export const SETTINGS_CATALOG: PersonaSettings[] = [
     description: "Configure audit trail access and review storage for ethics board workflows.",
     fields: [
       { key: "review_storage", label: "Review Artifacts Storage", description: "Storage account for model review packages", type: "text", defaultValue: "aimarket-reviews-dev", group: "Storage" },
-      { key: "approval_system", label: "Approval System URL", description: "ServiceNow or Jira endpoint for approval tickets", type: "text", defaultValue: "https://optum.service-now.com/ai-review", group: "Workflow" },
+      { key: "approval_system", label: "Approval System URL", description: "ServiceNow or Jira endpoint for approval tickets", type: "text", defaultValue: "https://Enterprise.service-now.com/ai-review", group: "Workflow" },
     ],
   },
   {
@@ -686,7 +686,7 @@ export const SETTINGS_CATALOG: PersonaSettings[] = [
       { key: "latency_slo_ms", label: "Latency SLO (P99)", description: "P99 latency target in milliseconds", type: "number", defaultValue: 500, unit: "ms", group: "SLOs" },
       { key: "error_budget_policy", label: "Error Budget Policy", description: "Action to take when the error budget falls below 10%", type: "select", defaultValue: "Freeze releases", options: ["Freeze releases", "Alert only", "Alert + reduce change rate"], group: "Error Budgets" },
       { key: "alert_channel", label: "Alert Notification Channel", description: "PagerDuty, OpsGenie, or Teams webhook for incidents", type: "text", defaultValue: "https://events.pagerduty.com/integration/…", group: "Alerting" },
-      { key: "runbook_url", label: "Runbook URL", description: "Primary operations runbook for incident response", type: "text", defaultValue: "https://confluence.optum.com/ai-marketplace/runbooks", group: "Incidents" },
+      { key: "runbook_url", label: "Runbook URL", description: "Primary operations runbook for incident response", type: "text", defaultValue: "https://confluence.Enterprise.com/ai-marketplace/runbooks", group: "Incidents" },
       { key: "backup_frequency", label: "Backup Frequency", description: "How often configuration state is backed up", type: "select", defaultValue: "Daily", options: ["Hourly", "Daily", "Weekly"], group: "Backups" },
     ],
   },
@@ -723,7 +723,7 @@ export const SETTINGS_CATALOG: PersonaSettings[] = [
     fields: [
       { key: "audit_trail_continuity", label: "Audit Trail Continuity", description: "Alert if a gap in the audit stream is detected", type: "toggle", defaultValue: true, group: "Audit" },
       { key: "policy_refresh_days", label: "Policy Refresh Cadence", description: "Days between automated policy-set refreshes from Purview", type: "number", defaultValue: 7, unit: "days", group: "Policy" },
-      { key: "compliance_alert_email", label: "Compliance Alert Email", description: "Email recipients for control-failure notifications", type: "text", defaultValue: "compliance-alerts@optum.com", group: "Alerting" },
+      { key: "compliance_alert_email", label: "Compliance Alert Email", description: "Email recipients for control-failure notifications", type: "text", defaultValue: "compliance-alerts@Enterprise.com", group: "Alerting" },
     ],
   },
   {
@@ -747,7 +747,7 @@ export const SETTINGS_CATALOG: PersonaSettings[] = [
       { key: "mttr_hours", label: "MTTR (last 90 days)", description: "Mean Time To Recovery for recent incidents", type: "readonly", defaultValue: "0.8 hours", group: "Metrics" },
       { key: "incidents_90d", label: "Incidents (last 90 days)", description: "Total P1/P2 incidents in the past quarter", type: "readonly", defaultValue: "2", group: "Metrics" },
       { key: "availability_30d", label: "Availability (last 30 days)", description: "Measured platform availability percentage", type: "readonly", defaultValue: "99.97%", group: "Metrics" },
-      { key: "status_page_url", label: "Status Page", description: "Public platform status page URL", type: "text", defaultValue: "https://status.ai-marketplace.optum.com", group: "Communication" },
+      { key: "status_page_url", label: "Status Page", description: "Public platform status page URL", type: "text", defaultValue: "https://status.ai-marketplace.Enterprise.com", group: "Communication" },
     ],
   },
   {
@@ -823,7 +823,7 @@ export const SETTINGS_CATALOG: PersonaSettings[] = [
     description: "Configure quorum requirements and escalation fallback for ethics review flows.",
     fields: [
       { key: "quorum_required", label: "Minimum Quorum", description: "Minimum reviewer approvals required to pass a model", type: "number", defaultValue: 3, unit: "reviews", group: "Approval" },
-      { key: "escalation_fallback", label: "Escalation Fallback", description: "Email address for board chair when quorum is unmet", type: "text", defaultValue: "ethics-chair@optum.com", group: "Escalation" },
+      { key: "escalation_fallback", label: "Escalation Fallback", description: "Email address for board chair when quorum is unmet", type: "text", defaultValue: "ethics-chair@Enterprise.com", group: "Escalation" },
     ],
   },
   {

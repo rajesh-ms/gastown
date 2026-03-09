@@ -55,9 +55,9 @@ const containers: CosmosContainer[] = [
     throughput: "Serverless",
     itemCount: 48,
     items: [
-      { id: "asset-001", tenantId: "optum", name: "Claims Denial Agent v2", type: "agent", status: "published", publisherId: "optum-rcm", createdAt: "2026-02-15T10:00:00Z" },
-      { id: "asset-002", tenantId: "optum", name: "Eligibility Verifier", type: "agent", status: "published", publisherId: "optum-rcm", createdAt: "2026-01-20T09:30:00Z" },
-      { id: "asset-003", tenantId: "optum", name: "GPT-4o (Azure AI Foundry)", type: "model", status: "active", endpoint: "https://...", createdAt: "2026-01-10T08:00:00Z" },
+      { id: "asset-001", tenantId: "demo-tenant", name: "Claims Denial Agent v2", type: "agent", status: "published", publisherId: "hc-rcm", createdAt: "2026-02-15T10:00:00Z" },
+      { id: "asset-002", tenantId: "demo-tenant", name: "Eligibility Verifier", type: "agent", status: "published", publisherId: "hc-rcm", createdAt: "2026-01-20T09:30:00Z" },
+      { id: "asset-003", tenantId: "demo-tenant", name: "GPT-4o (Azure AI Foundry)", type: "model", status: "active", endpoint: "https://...", createdAt: "2026-01-10T08:00:00Z" },
     ],
   },
   {
@@ -66,7 +66,7 @@ const containers: CosmosContainer[] = [
     throughput: "Serverless",
     itemCount: 6,
     items: [
-      { id: "optum-rcm", publisherId: "optum-rcm", name: "Optum RCM Team", verified: true, assetCount: 12, createdAt: "2025-12-01T00:00:00Z" },
+      { id: "hc-rcm", publisherId: "hc-rcm", name: "Healthcare RCM Team", verified: true, assetCount: 12, createdAt: "2025-12-01T00:00:00Z" },
       { id: "openai-azure", publisherId: "openai-azure", name: "Azure OpenAI Service", verified: true, assetCount: 8, createdAt: "2025-12-01T00:00:00Z" },
     ],
   },
@@ -77,8 +77,8 @@ const containers: CosmosContainer[] = [
     ttl: "86400s (24h)",
     itemCount: 214,
     items: [
-      { id: "sess-abc123", tenantId: "optum", userId: "user-001", agentId: "asset-001", startedAt: "2026-03-02T14:00:00Z", messageCount: 8, status: "active" },
-      { id: "sess-def456", tenantId: "optum", userId: "user-002", agentId: "asset-002", startedAt: "2026-03-02T12:00:00Z", messageCount: 3, status: "ended" },
+      { id: "sess-abc123", tenantId: "demo-tenant", userId: "user-001", agentId: "asset-001", startedAt: "2026-03-02T14:00:00Z", messageCount: 8, status: "active" },
+      { id: "sess-def456", tenantId: "demo-tenant", userId: "user-002", agentId: "asset-002", startedAt: "2026-03-02T12:00:00Z", messageCount: 3, status: "ended" },
     ],
   },
   {
@@ -88,8 +88,8 @@ const containers: CosmosContainer[] = [
     ttl: "7776000s (90d)",
     itemCount: 4200,
     items: [
-      { id: "aud-001", tenantId: "optum", action: "asset.published", actorId: "user-001", resourceId: "asset-001", timestamp: "2026-03-02T11:00:00Z" },
-      { id: "aud-002", tenantId: "optum", action: "session.started", actorId: "user-002", resourceId: "sess-abc123", timestamp: "2026-03-02T14:00:00Z" },
+      { id: "aud-001", tenantId: "demo-tenant", action: "asset.published", actorId: "user-001", resourceId: "asset-001", timestamp: "2026-03-02T11:00:00Z" },
+      { id: "aud-002", tenantId: "demo-tenant", action: "session.started", actorId: "user-002", resourceId: "sess-abc123", timestamp: "2026-03-02T14:00:00Z" },
     ],
   },
   {
@@ -107,7 +107,7 @@ const containers: CosmosContainer[] = [
     throughput: "Serverless",
     itemCount: 18,
     items: [
-      { id: "wf-001", tenantId: "optum", name: "Claims Processing Pipeline", steps: 4, status: "active", lastRun: "2026-03-02T13:00:00Z" },
+      { id: "wf-001", tenantId: "demo-tenant", name: "Claims Processing Pipeline", steps: 4, status: "active", lastRun: "2026-03-02T13:00:00Z" },
     ],
   },
   {
@@ -116,7 +116,7 @@ const containers: CosmosContainer[] = [
     throughput: "Serverless",
     itemCount: 34,
     items: [
-      { id: "sub-001", tenantId: "optum", assetId: "asset-xyz", submittedBy: "user-003", stage: "review", submittedAt: "2026-03-01T09:00:00Z" },
+      { id: "sub-001", tenantId: "demo-tenant", assetId: "asset-xyz", submittedBy: "user-003", stage: "review", submittedAt: "2026-03-01T09:00:00Z" },
     ],
   },
   {
@@ -125,7 +125,7 @@ const containers: CosmosContainer[] = [
     throughput: "Serverless",
     itemCount: 9,
     items: [
-      { id: "proj-001", tenantId: "optum", name: "Q1 Denial Reduction", status: "active", assetIds: ["asset-001", "asset-002"], createdAt: "2026-01-05T00:00:00Z" },
+      { id: "proj-001", tenantId: "demo-tenant", name: "Q1 Denial Reduction", status: "active", assetIds: ["asset-001", "asset-002"], createdAt: "2026-01-05T00:00:00Z" },
     ],
   },
   {
@@ -143,13 +143,13 @@ const containers: CosmosContainer[] = [
     throughput: "Serverless",
     itemCount: 47,
     items: [
-      { id: "uc-001", userId: "user-001", theme: "dark", defaultTenantId: "optum", starredAssets: ["asset-001", "asset-003"], updatedAt: "2026-03-01T12:00:00Z" },
+      { id: "uc-001", userId: "user-001", theme: "dark", defaultTenantId: "demo-tenant", starredAssets: ["asset-001", "asset-003"], updatedAt: "2026-03-01T12:00:00Z" },
     ],
   },
 ]
 
 const defaultQuery = `SELECT * FROM c
-WHERE c.tenantId = "optum"
+WHERE c.tenantId = "demo-tenant"
 ORDER BY c._ts DESC
 OFFSET 0 LIMIT 20`
 

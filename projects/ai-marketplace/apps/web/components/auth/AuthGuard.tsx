@@ -19,7 +19,7 @@ export function AuthGuard({ children }: { children: ReactNode }) {
     return (
       <div className="flex h-screen w-screen items-center justify-center bg-background">
         <div className="flex flex-col items-center gap-3">
-          <div className="h-8 w-8 animate-spin rounded-full border-2 border-[var(--optum-orange)] border-t-transparent" />
+          <div className="h-8 w-8 animate-spin rounded-full border-2 border-[var(--accent)] border-t-transparent" />
           <p className="text-sm text-muted-foreground">Signing in…</p>
         </div>
       </div>
@@ -30,7 +30,7 @@ export function AuthGuard({ children }: { children: ReactNode }) {
     return (
       <div className="flex h-screen w-screen flex-col items-center justify-center gap-8 bg-background">
         {/* Logo */}
-        <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-[var(--optum-orange)] to-[var(--optum-orange-light)] shadow-lg shadow-[var(--optum-orange)]/20">
+        <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-[var(--accent)] to-[var(--accent-light)] shadow-lg shadow-[var(--accent)]/20">
           <Building2 className="h-10 w-10 text-white" />
         </div>
 
@@ -40,14 +40,14 @@ export function AuthGuard({ children }: { children: ReactNode }) {
             AI Asset Marketplace
           </h1>
           <p className="mt-2 text-sm text-muted-foreground">
-            Optum RCM Platform — sign in with your Microsoft account to continue
+            AI Marketplace Platform — sign in with your Microsoft account to continue
           </p>
         </div>
 
         {/* Sign-in button */}
         <button
           onClick={() => instance.loginRedirect(loginRequest).catch(console.error)}
-          className="flex items-center gap-3 rounded-xl border border-border bg-secondary px-8 py-3.5 text-sm font-semibold text-foreground shadow-sm transition-all hover:bg-secondary/80 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--optum-orange)]"
+          className="flex items-center gap-3 rounded-xl border border-border bg-secondary px-8 py-3.5 text-sm font-semibold text-foreground shadow-sm transition-all hover:bg-secondary/80 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
         >
           {/* Microsoft "M" logo mark */}
           <svg

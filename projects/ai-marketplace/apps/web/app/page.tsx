@@ -94,10 +94,10 @@ export default function MarketplacePage() {
         </div>
         
         {/* Install Command */}
-        <div className="mb-6 inline-flex items-center gap-3 rounded-lg border border-[var(--optum-orange)]/30 bg-card/50 px-4 py-2.5">
+        <div className="mb-6 inline-flex items-center gap-3 rounded-lg border border-[var(--accent)]/30 bg-card/50 px-4 py-2.5">
           <span className="text-sm text-muted-foreground">Install any agent in one command:</span>
           <code className="text-sm">
-            <span className="text-[var(--optum-orange)]">/agent install</span>
+            <span className="text-[var(--accent)]">/agent install</span>
             <span className="text-[var(--success)]"> {'<name>'}@uap-marketplace</span>
           </code>
           <button className="text-muted-foreground hover:text-foreground transition-colors">
@@ -114,7 +114,7 @@ export default function MarketplacePage() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search agents, tools, and skills..."
-              className="h-11 w-full rounded-lg border border-border bg-card pl-10 pr-4 text-sm text-foreground placeholder:text-muted-foreground focus:border-[var(--optum-orange)]/50 focus:outline-none focus:ring-1 focus:ring-[var(--optum-orange)]/50"
+              className="h-11 w-full rounded-lg border border-border bg-card pl-10 pr-4 text-sm text-foreground placeholder:text-muted-foreground focus:border-[var(--accent)]/50 focus:outline-none focus:ring-1 focus:ring-[var(--accent)]/50"
             />
           </div>
           <button className="flex h-11 items-center gap-2 rounded-lg border border-border bg-card px-4 text-sm text-muted-foreground hover:text-foreground transition-colors">
@@ -131,10 +131,10 @@ export default function MarketplacePage() {
         {selectedTab === "stats" && (
           <div className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { label: "Agents",      value: counts.agents, color: "text-[var(--optum-orange)]" },
+              { label: "Agents",      value: counts.agents, color: "text-[var(--accent)]" },
               { label: "MCP Servers & Tools", value: counts.mcp,    color: "text-[var(--success)]" },
               { label: "Models",      value: counts.models, color: "text-purple-400" },
-              { label: "Skills",      value: counts.skills, color: "text-[var(--optum-teal)]" },
+              { label: "Skills",      value: counts.skills, color: "text-[var(--brand-teal)]" },
             ].map(({ label, value, color }) => (
               <div key={label} className="rounded-lg border border-border bg-card/50 p-4">
                 <p className="text-sm text-muted-foreground">{label}</p>

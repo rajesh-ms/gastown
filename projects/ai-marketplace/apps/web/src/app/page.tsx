@@ -14,7 +14,7 @@ const featuredAssets = [
     name: "Denial Intelligence Agent",
     type: "Agent",
     description: "Automates claims denial analysis and appeal recommendation using Azure OpenAI.",
-    publisher: "Optum AI",
+    publisher: "Enterprise AI",
     verified: true,
     rating: 4.8,
     deployments: 340,

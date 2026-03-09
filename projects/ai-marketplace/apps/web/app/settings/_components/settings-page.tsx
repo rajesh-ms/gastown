@@ -110,22 +110,22 @@ const CATEGORIES: {
 // ── Tier color helpers ────────────────────────────────────────────────────────
 
 function tierBorderClass(tier: PersonaTier): string {
-  if (tier.tier === 1) return "border-[var(--optum-orange)]/40"
+  if (tier.tier === 1) return "border-[var(--accent)]/40"
   if (tier.tier === 2) return "border-blue-500/40"
   return "border-violet-500/40"
 }
 function tierBgClass(tier: PersonaTier): string {
-  if (tier.tier === 1) return "bg-[var(--optum-orange)]/10"
+  if (tier.tier === 1) return "bg-[var(--accent)]/10"
   if (tier.tier === 2) return "bg-blue-500/10"
   return "bg-violet-500/10"
 }
 function tierTextClass(tier: PersonaTier): string {
-  if (tier.tier === 1) return "text-[var(--optum-orange)]"
+  if (tier.tier === 1) return "text-[var(--accent)]"
   if (tier.tier === 2) return "text-blue-400"
   return "text-violet-400"
 }
 function tierActiveBg(tier: PersonaTier): string {
-  if (tier.tier === 1) return "bg-[var(--optum-orange)]/20"
+  if (tier.tier === 1) return "bg-[var(--accent)]/20"
   if (tier.tier === 2) return "bg-blue-500/20"
   return "bg-violet-500/20"
 }
@@ -170,7 +170,7 @@ function SettingFieldRow({ field, value, onChange }: FieldProps) {
             onClick={() => !isReadonly && onChange(field.key, !value)}
             className={cn(
               "relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-              value ? "bg-[var(--optum-orange)]" : "bg-secondary",
+              value ? "bg-[var(--accent)]" : "bg-secondary",
               isReadonly && "opacity-50 cursor-not-allowed"
             )}
           >
@@ -190,7 +190,7 @@ function SettingFieldRow({ field, value, onChange }: FieldProps) {
             onChange={(e) => onChange(field.key, e.target.value)}
             readOnly={isReadonly}
             className={cn(
-              "w-full rounded-md border border-border bg-secondary/50 px-3 py-1.5 text-xs text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-[var(--optum-orange)]/50 transition-colors",
+              "w-full rounded-md border border-border bg-secondary/50 px-3 py-1.5 text-xs text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-[var(--accent)]/50 transition-colors",
               isReadonly && "opacity-60 cursor-not-allowed bg-secondary"
             )}
           />
@@ -203,7 +203,7 @@ function SettingFieldRow({ field, value, onChange }: FieldProps) {
             onChange={(e) => onChange(field.key, parseFloat(e.target.value) || 0)}
             readOnly={isReadonly}
             className={cn(
-              "w-full rounded-md border border-border bg-secondary/50 px-3 py-1.5 text-xs text-foreground focus:outline-none focus:ring-1 focus:ring-[var(--optum-orange)]/50 transition-colors",
+              "w-full rounded-md border border-border bg-secondary/50 px-3 py-1.5 text-xs text-foreground focus:outline-none focus:ring-1 focus:ring-[var(--accent)]/50 transition-colors",
               isReadonly && "opacity-60 cursor-not-allowed bg-secondary"
             )}
           />
@@ -221,7 +221,7 @@ function SettingFieldRow({ field, value, onChange }: FieldProps) {
             onChange={(e) => onChange(field.key, e.target.value)}
             disabled={isReadonly}
             className={cn(
-              "w-full rounded-md border border-border bg-secondary/50 px-3 py-1.5 text-xs text-foreground focus:outline-none focus:ring-1 focus:ring-[var(--optum-orange)]/50 transition-colors",
+              "w-full rounded-md border border-border bg-secondary/50 px-3 py-1.5 text-xs text-foreground focus:outline-none focus:ring-1 focus:ring-[var(--accent)]/50 transition-colors",
               isReadonly && "opacity-60 cursor-not-allowed"
             )}
           >
@@ -358,7 +358,7 @@ export function SettingsPageContent({ category }: SettingsPageContentProps) {
                   placeholder="Search personas…"
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  className="w-full rounded-md border border-border bg-secondary/50 pl-8 pr-3 py-1.5 text-xs text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-[var(--optum-orange)]/50"
+                  className="w-full rounded-md border border-border bg-secondary/50 pl-8 pr-3 py-1.5 text-xs text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-[var(--accent)]/50"
                 />
               </div>
             </div>
@@ -450,10 +450,10 @@ export function SettingsPageContent({ category }: SettingsPageContentProps) {
               ))}
             </div>
 
-            {/* Optum footer */}
+            {/* Enterprise footer */}
             <div className="border-t border-border p-3">
               <p className="text-[10px] text-muted-foreground/50 leading-relaxed text-center">
-                © 2026 Optum, Inc. All rights reserved.
+                © 2026 Enterprise, Inc. All rights reserved.
               </p>
             </div>
           </aside>
@@ -542,7 +542,7 @@ export function SettingsPageContent({ category }: SettingsPageContentProps) {
                         "h-8 gap-1.5 text-xs transition-all",
                         justSaved
                           ? "bg-emerald-600 hover:bg-emerald-600 text-white"
-                          : "bg-[var(--optum-orange)] hover:bg-[var(--optum-orange-light)] text-white"
+                          : "bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white"
                       )}
                     >
                       {justSaved ? (

@@ -39,16 +39,16 @@ export function NavTabs({ selectedTab, onTabChange, counts }: NavTabsProps) {
             className={cn(
               "flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all",
               selectedTab === tab.id
-                ? "bg-[var(--optum-orange)]/10 text-foreground border border-[var(--optum-orange)]/30"
+                ? "bg-[var(--accent)]/10 text-foreground border border-[var(--accent)]/30"
                 : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
             )}
           >
             <tab.icon className={cn(
               "h-4 w-4",
-              tab.id === "agents"  && "text-[var(--optum-orange)]",
+              tab.id === "agents"  && "text-[var(--accent)]",
               tab.id === "tools"   && "text-[var(--success)]",
               tab.id === "models"  && "text-purple-400",
-              tab.id === "skills"  && "text-[var(--optum-teal)]",
+              tab.id === "skills"  && "text-[var(--brand-teal)]",
               tab.id === "stats"   && "text-[var(--info)]"
             )} />
             <span>{tab.label}</span>

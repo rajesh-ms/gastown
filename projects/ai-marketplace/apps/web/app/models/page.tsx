@@ -45,11 +45,11 @@ function ModelCard({ model }: { model: typeof models[0] }) {
 
   return (
     <Link href={`/models/${model.id}`} className="group block">
-      <div className="flex h-full flex-col rounded-xl border border-border bg-card p-5 transition-all duration-200 hover:border-[var(--optum-orange)]/40 hover:bg-card/80">
+      <div className="flex h-full flex-col rounded-xl border border-border bg-card p-5 transition-all duration-200 hover:border-[var(--accent)]/40 hover:bg-card/80">
         {/* Header */}
         <div className="mb-4 flex items-start justify-between">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[var(--optum-orange)]/20 to-[var(--uhg-blue)]/20">
-            <Brain className="h-6 w-6 text-[var(--optum-orange)]" />
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[var(--accent)]/20 to-[var(--brand-primary)]/20">
+            <Brain className="h-6 w-6 text-[var(--accent)]" />
           </div>
           <div className="flex items-center gap-2">
             <span className={cn(
@@ -69,13 +69,13 @@ function ModelCard({ model }: { model: typeof models[0] }) {
         
         {/* Title and Version */}
         <div className="mb-2">
-          <h3 className="text-base font-semibold text-foreground group-hover:text-[var(--optum-orange)] transition-colors">
+          <h3 className="text-base font-semibold text-foreground group-hover:text-[var(--accent)] transition-colors">
             {model.name}
           </h3>
           <p className="text-xs text-muted-foreground">
             {model.version} · by {model.publisher}
             {model.publisherVerified && (
-              <CheckCircle2 className="ml-1 inline h-3 w-3 text-[var(--optum-orange)]" />
+              <CheckCircle2 className="ml-1 inline h-3 w-3 text-[var(--accent)]" />
             )}
           </p>
         </div>
@@ -196,7 +196,7 @@ export default function ModelMarketplacePage() {
                 Documentation
               </Button>
               <Link href="/models/register">
-                <Button size="sm" className="gap-2 bg-[var(--optum-orange)] hover:bg-[var(--optum-orange-light)] text-white">
+                <Button size="sm" className="gap-2 bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white">
                   <Plus className="h-4 w-4" />
                   Register Model (BYOM)
                 </Button>
@@ -209,8 +209,8 @@ export default function ModelMarketplacePage() {
         <div className="mb-8 grid grid-cols-4 gap-4">
           <div className="rounded-xl border border-border bg-card p-4">
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--optum-orange)]/20">
-                <Brain className="h-5 w-5 text-[var(--optum-orange)]" />
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--accent)]/20">
+                <Brain className="h-5 w-5 text-[var(--accent)]" />
               </div>
               <div>
                 <p className="text-2xl font-semibold text-foreground">{stats.total}</p>
@@ -231,8 +231,8 @@ export default function ModelMarketplacePage() {
           </div>
           <div className="rounded-xl border border-border bg-card p-4">
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--uhg-blue)]/20">
-                <Users className="h-5 w-5 text-[var(--uhg-blue-light)]" />
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--brand-primary)]/20">
+                <Users className="h-5 w-5 text-[var(--brand-secondary-light)]" />
               </div>
               <div>
                 <p className="text-2xl font-semibold text-foreground">{stats.internal}</p>
@@ -242,8 +242,8 @@ export default function ModelMarketplacePage() {
           </div>
           <div className="rounded-xl border border-border bg-card p-4">
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--optum-teal)]/20">
-                <ExternalLink className="h-5 w-5 text-[var(--optum-teal)]" />
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--brand-teal)]/20">
+                <ExternalLink className="h-5 w-5 text-[var(--brand-teal)]" />
               </div>
               <div>
                 <p className="text-2xl font-semibold text-foreground">{stats.partner}</p>
@@ -254,16 +254,16 @@ export default function ModelMarketplacePage() {
         </div>
         
         {/* Value Proposition - UAP PRD Aligned */}
-        <div className="mb-8 rounded-xl border border-[var(--optum-orange)]/30 bg-gradient-to-r from-[var(--optum-orange)]/5 to-[var(--uhg-blue)]/5 p-6">
+        <div className="mb-8 rounded-xl border border-[var(--accent)]/30 bg-gradient-to-r from-[var(--accent)]/5 to-[var(--brand-primary)]/5 p-6">
           <div className="flex items-start gap-6">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[var(--optum-orange)]/20">
-              <Shield className="h-6 w-6 text-[var(--optum-orange)]" />
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[var(--accent)]/20">
+              <Shield className="h-6 w-6 text-[var(--accent)]" />
             </div>
             <div>
               <h3 className="mb-2 text-lg font-semibold text-foreground">Governed Model Registry with BYOM Support</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Every model (internal or from partners) is registered with metadata, documented with Model Report Cards, 
-                and monitored centrally. Models move through <span className="text-[var(--optum-orange)]">Draft → Review → Approved</span> before 
+                and monitored centrally. Models move through <span className="text-[var(--accent)]">Draft → Review → Approved</span> before 
                 production use. Share innovations so one team's model benefits others, while enforcing HIPAA/SOC2 standards 
                 and avoiding duplicate development. MCP-Server integration ensures all models are exposed for agentic workflows.
               </p>
@@ -280,7 +280,7 @@ export default function ModelMarketplacePage() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search models by name or description..."
-              className="h-11 w-full rounded-lg border border-border bg-card pl-10 pr-4 text-sm text-foreground placeholder:text-muted-foreground focus:border-[var(--optum-orange)]/50 focus:outline-none focus:ring-1 focus:ring-[var(--optum-orange)]/50"
+              className="h-11 w-full rounded-lg border border-border bg-card pl-10 pr-4 text-sm text-foreground placeholder:text-muted-foreground focus:border-[var(--accent)]/50 focus:outline-none focus:ring-1 focus:ring-[var(--accent)]/50"
             />
           </div>
           <button className="flex h-11 items-center gap-2 rounded-lg border border-border bg-card px-4 text-sm text-muted-foreground hover:text-foreground transition-colors">

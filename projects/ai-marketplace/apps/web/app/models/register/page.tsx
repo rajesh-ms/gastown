@@ -222,7 +222,7 @@ export default function RegisterModelPage() {
                 Register Another
               </Button>
               <Button
-                className="bg-[var(--optum-orange)] hover:bg-[var(--optum-orange-light)] text-white"
+                className="bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white"
                 onClick={() => router.push("/models")}
               >
                 View Model Catalog
@@ -259,8 +259,8 @@ export default function RegisterModelPage() {
           </div>
 
           {/* Integration callout */}
-          <div className="mb-6 flex items-start gap-3 rounded-lg border border-[var(--uhg-blue)]/30 bg-[var(--uhg-blue)]/5 p-4">
-            <Info className="mt-0.5 h-4 w-4 shrink-0 text-[var(--uhg-blue-light)]" />
+          <div className="mb-6 flex items-start gap-3 rounded-lg border border-[var(--brand-primary)]/30 bg-[var(--brand-primary)]/5 p-4">
+            <Info className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-secondary-light)]" />
             <div className="text-sm">
               <p className="font-medium text-foreground">Azure ML Model Registry Integration</p>
               <p className="mt-0.5 text-muted-foreground">
@@ -275,7 +275,7 @@ export default function RegisterModelPage() {
                 href="https://learn.microsoft.com/azure/machine-learning/how-to-manage-models"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-1 inline-flex items-center gap-1 text-[var(--uhg-blue-light)] hover:underline"
+                className="mt-1 inline-flex items-center gap-1 text-[var(--brand-secondary-light)] hover:underline"
               >
                 Azure ML Model Registry docs <ExternalLink className="h-3 w-3" />
               </a>
@@ -292,7 +292,7 @@ export default function RegisterModelPage() {
                     step > s.id
                       ? "border-transparent bg-emerald-500/80 text-white"
                       : step === s.id
-                      ? "border-[var(--optum-orange)] bg-[var(--optum-orange)]/10 text-[var(--optum-orange)]"
+                      ? "border-[var(--accent)] bg-[var(--accent)]/10 text-[var(--accent)]"
                       : "border-border bg-secondary/50 text-muted-foreground"
                   )}
                 >
@@ -315,7 +315,7 @@ export default function RegisterModelPage() {
           {step === 1 && (
             <div className="space-y-5 rounded-xl border border-border bg-card p-6">
               <h2 className="flex items-center gap-2 text-base font-medium text-foreground">
-                <Brain className="h-5 w-5 text-[var(--optum-orange)]" />
+                <Brain className="h-5 w-5 text-[var(--accent)]" />
                 Model Identity
               </h2>
 
@@ -329,7 +329,7 @@ export default function RegisterModelPage() {
                     value={form.name}
                     onChange={(e) => update("name", e.target.value)}
                     placeholder="e.g. DenialPrediction-BERT"
-                    className="h-10 w-full rounded-lg border border-border bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-[var(--optum-orange)]/50 focus:outline-none focus:ring-1 focus:ring-[var(--optum-orange)]/30"
+                    className="h-10 w-full rounded-lg border border-border bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-[var(--accent)]/50 focus:outline-none focus:ring-1 focus:ring-[var(--accent)]/30"
                   />
                   <p className="mt-1 text-xs text-muted-foreground">
                     Alphanumeric, hyphens allowed. Used as the model container name in Azure ML.
@@ -345,7 +345,7 @@ export default function RegisterModelPage() {
                     value={form.version}
                     onChange={(e) => update("version", e.target.value)}
                     placeholder="1"
-                    className="h-10 w-full rounded-lg border border-border bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-[var(--optum-orange)]/50 focus:outline-none"
+                    className="h-10 w-full rounded-lg border border-border bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-[var(--accent)]/50 focus:outline-none"
                   />
                   <p className="mt-1 text-xs text-muted-foreground">Integer or semver (e.g. 1, 2, 1.0.0)</p>
                 </div>
@@ -355,9 +355,9 @@ export default function RegisterModelPage() {
                   <select
                     value={form.type}
                     onChange={(e) => update("type", e.target.value)}
-                    className="h-10 w-full rounded-lg border border-border bg-background px-3 text-sm text-foreground focus:border-[var(--optum-orange)]/50 focus:outline-none"
+                    className="h-10 w-full rounded-lg border border-border bg-background px-3 text-sm text-foreground focus:border-[var(--accent)]/50 focus:outline-none"
                   >
-                    <option value="internal">Internal (Optum built)</option>
+                    <option value="internal">Internal (internally built)</option>
                     <option value="partner">Partner model</option>
                     <option value="custom">Custom / BYOM</option>
                   </select>
@@ -372,7 +372,7 @@ export default function RegisterModelPage() {
                     onChange={(e) => update("description", e.target.value)}
                     rows={3}
                     placeholder="Describe what the model does, its training data, and intended use…"
-                    className="w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-[var(--optum-orange)]/50 focus:outline-none"
+                    className="w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-[var(--accent)]/50 focus:outline-none"
                   />
                 </div>
               </div>
@@ -381,7 +381,7 @@ export default function RegisterModelPage() {
                 <Button
                   disabled={!step1Valid}
                   onClick={() => setStep(2)}
-                  className="bg-[var(--optum-orange)] hover:bg-[var(--optum-orange-light)] text-white"
+                  className="bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white"
                 >
                   Next: Artifact & Source →
                 </Button>
@@ -393,7 +393,7 @@ export default function RegisterModelPage() {
           {step === 2 && (
             <div className="space-y-5 rounded-xl border border-border bg-card p-6">
               <h2 className="flex items-center gap-2 text-base font-medium text-foreground">
-                <Server className="h-5 w-5 text-[var(--optum-orange)]" />
+                <Server className="h-5 w-5 text-[var(--accent)]" />
                 Artifact & Source
               </h2>
 
@@ -409,7 +409,7 @@ export default function RegisterModelPage() {
                       value={form.modelUri}
                       onChange={(e) => update("modelUri", e.target.value)}
                       placeholder="azureml://subscriptions/.../datastores/workspaceblobstore/paths/models/…"
-                      className="h-10 w-full rounded-lg border border-border bg-background pl-10 pr-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-[var(--optum-orange)]/50 focus:outline-none"
+                      className="h-10 w-full rounded-lg border border-border bg-background pl-10 pr-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-[var(--accent)]/50 focus:outline-none"
                     />
                   </div>
                   <p className="mt-1 text-xs text-muted-foreground">
@@ -425,7 +425,7 @@ export default function RegisterModelPage() {
                   <select
                     value={form.framework}
                     onChange={(e) => update("framework", e.target.value)}
-                    className="h-10 w-full rounded-lg border border-border bg-background px-3 text-sm text-foreground focus:border-[var(--optum-orange)]/50 focus:outline-none"
+                    className="h-10 w-full rounded-lg border border-border bg-background px-3 text-sm text-foreground focus:border-[var(--accent)]/50 focus:outline-none"
                   >
                     <option value="">Select framework…</option>
                     {FRAMEWORKS.map((f) => (
@@ -441,7 +441,7 @@ export default function RegisterModelPage() {
                   <select
                     value={form.taskType}
                     onChange={(e) => update("taskType", e.target.value)}
-                    className="h-10 w-full rounded-lg border border-border bg-background px-3 text-sm text-foreground focus:border-[var(--optum-orange)]/50 focus:outline-none"
+                    className="h-10 w-full rounded-lg border border-border bg-background px-3 text-sm text-foreground focus:border-[var(--accent)]/50 focus:outline-none"
                   >
                     <option value="">Select task type…</option>
                     {TASK_TYPES.map((t) => (
@@ -455,7 +455,7 @@ export default function RegisterModelPage() {
                   <select
                     value={form.category}
                     onChange={(e) => update("category", e.target.value)}
-                    className="h-10 w-full rounded-lg border border-border bg-background px-3 text-sm text-foreground focus:border-[var(--optum-orange)]/50 focus:outline-none"
+                    className="h-10 w-full rounded-lg border border-border bg-background px-3 text-sm text-foreground focus:border-[var(--accent)]/50 focus:outline-none"
                   >
                     {CATEGORIES.map((c) => (
                       <option key={c} value={c}>{c}</option>
@@ -494,7 +494,7 @@ export default function RegisterModelPage() {
                 <Button
                   disabled={!step2Valid}
                   onClick={() => setStep(3)}
-                  className="bg-[var(--optum-orange)] hover:bg-[var(--optum-orange-light)] text-white"
+                  className="bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white"
                 >
                   Next: Governance →
                 </Button>
@@ -506,7 +506,7 @@ export default function RegisterModelPage() {
           {step === 3 && (
             <div className="space-y-5 rounded-xl border border-border bg-card p-6">
               <h2 className="flex items-center gap-2 text-base font-medium text-foreground">
-                <Shield className="h-5 w-5 text-[var(--optum-orange)]" />
+                <Shield className="h-5 w-5 text-[var(--accent)]" />
                 Governance & Metadata
               </h2>
 
@@ -524,7 +524,7 @@ export default function RegisterModelPage() {
                       className={cn(
                         "flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium transition-colors",
                         form.compliance.includes(badge)
-                          ? "border-[var(--optum-orange)] bg-[var(--optum-orange)]/10 text-[var(--optum-orange)]"
+                          ? "border-[var(--accent)] bg-[var(--accent)]/10 text-[var(--accent)]"
                           : "border-border bg-secondary/50 text-muted-foreground hover:border-border/80 hover:text-foreground"
                       )}
                     >
@@ -550,7 +550,7 @@ export default function RegisterModelPage() {
                   value={form.tags}
                   onChange={(e) => update("tags", e.target.value)}
                   placeholder="team:rcm, usecase:denial, env:production"
-                  className="h-10 w-full rounded-lg border border-border bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-[var(--optum-orange)]/50 focus:outline-none"
+                  className="h-10 w-full rounded-lg border border-border bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-[var(--accent)]/50 focus:outline-none"
                 />
                 <p className="mt-1 text-xs text-muted-foreground">
                   Comma-separated key:value pairs. Stored as AML model tags.
@@ -567,7 +567,7 @@ export default function RegisterModelPage() {
                   onChange={(e) => update("additionalInfo", e.target.value)}
                   rows={3}
                   placeholder="Known limitations, performance caveats, training methodology…"
-                  className="w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-[var(--optum-orange)]/50 focus:outline-none"
+                  className="w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-[var(--accent)]/50 focus:outline-none"
                 />
               </div>
 
@@ -606,7 +606,7 @@ export default function RegisterModelPage() {
                 <Button
                   disabled={!canSubmit || isSubmitting}
                   onClick={handleSubmit}
-                  className="gap-2 bg-[var(--optum-orange)] hover:bg-[var(--optum-orange-light)] text-white"
+                  className="gap-2 bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white"
                 >
                   {isSubmitting ? (
                     <>

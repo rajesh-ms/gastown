@@ -498,7 +498,7 @@ export default function ObservabilityPage() {
         <div className="mb-6 flex items-start justify-between">
           <div>
             <h1 className="flex items-center gap-2 text-2xl font-semibold text-foreground">
-              <Activity className="h-6 w-6 text-[var(--optum-orange)]" />
+              <Activity className="h-6 w-6 text-[var(--accent)]" />
               Observability
             </h1>
             <p className="mt-0.5 text-sm text-muted-foreground">

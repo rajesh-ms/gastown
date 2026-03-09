@@ -68,7 +68,7 @@ const datasets: Dataset[] = [
   {
     id: "hc-claims-rcm-v3",
     name: "Claims & Denials (RCM v3)",
-    org: "Optum RCM",
+    org: "Healthcare RCM",
     description: "4.1M de-identified claims with denial codes, remark codes, and appeal outcomes. Ideal for denial prediction and prior auth models.",
     category: "healthcare",
     modality: "tabular",
@@ -86,7 +86,7 @@ const datasets: Dataset[] = [
   {
     id: "hc-eligibility-payer",
     name: "Payer Eligibility Checks",
-    org: "Optum RCM",
+    org: "Healthcare RCM",
     description: "2.8M eligibility verification records across 40+ payers with real-time vs batch outcomes. Use for eligibility agent training.",
     category: "healthcare",
     modality: "tabular",
@@ -104,7 +104,7 @@ const datasets: Dataset[] = [
   {
     id: "hc-nlp-clinical-notes",
     name: "Healthcare NLP Corpus v2",
-    org: "Optum AI",
+    org: "Enterprise AI",
     description: "450K de-identified clinical notes with ICD-10 annotations, NER labels, and SOAP structure. Benchmark for clinical NLP models.",
     category: "nlp",
     modality: "text",
@@ -122,7 +122,7 @@ const datasets: Dataset[] = [
   {
     id: "hc-prior-auth-requests",
     name: "Prior Auth Request Corpus",
-    org: "Optum RCM",
+    org: "Healthcare RCM",
     description: "512K prior authorization requests with approval/denial labels, procedure codes, and clinical justification notes.",
     category: "healthcare",
     modality: "multimodal",
@@ -191,7 +191,7 @@ const datasets: Dataset[] = [
   {
     id: "synth-claims-benchmark",
     name: "Synthetic Claims Benchmark",
-    org: "Optum AI",
+    org: "Enterprise AI",
     description: "500K fully synthetic claims generated with differential privacy guarantees. Safe for model evaluation and CI pipelines.",
     category: "synthetic",
     modality: "tabular",
@@ -208,7 +208,7 @@ const datasets: Dataset[] = [
   {
     id: "nlp-denial-reason-classification",
     name: "Denial Reason Classifier",
-    org: "Optum RCM",
+    org: "Healthcare RCM",
     description: "48K labeled denial notes mapped to CARC/RARC reason codes for multi-class classification fine-tuning.",
     category: "nlp",
     modality: "text",
@@ -259,7 +259,7 @@ const datasets: Dataset[] = [
   {
     id: "bench-rcm-eval",
     name: "RCM Agent Eval Suite",
-    org: "Optum AI",
+    org: "Enterprise AI",
     description: "2,400 expert-annotated Q&A pairs for evaluating healthcare RCM agents across eligibility, coding, and denial categories.",
     category: "benchmark",
     modality: "text",
@@ -294,7 +294,7 @@ const datasets: Dataset[] = [
   {
     id: "synth-member-demographics",
     name: "Synthetic Member Demographics",
-    org: "Optum AI",
+    org: "Enterprise AI",
     description: "1M synthetic member profiles with demographics, risk scores, and chronic condition flags. Privacy-safe for integration testing.",
     category: "synthetic",
     modality: "tabular",
