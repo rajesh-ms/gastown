@@ -1,10 +1,12 @@
 # Gas Town
 
-**Multi-agent orchestration system for Claude Code (and Copilot SDK) with persistent work tracking**
+**Multi-agent orchestration system for GitHub Copilot SDK, Claude Code, and other AI runtimes — with persistent work tracking**
 
 ## Overview
 
-Gas Town is a workspace manager that lets you coordinate multiple coding agents (Claude Code by default, with Copilot SDK and other runtimes available) working on different tasks. Instead of losing context when agents restart, Gas Town persists work state in git-backed hooks, enabling reliable multi-agent workflows.
+Gas Town is a workspace manager that lets you coordinate multiple coding agents — powered by **GitHub Copilot SDK**, Claude Code, Gemini, Codex, and other runtimes — working on different tasks in parallel. Instead of losing context when agents restart, Gas Town persists work state in git-backed hooks, enabling reliable multi-agent workflows.
+
+The built-in [Copilot SDK integration](docs/copilot-sdk.md) uses the official Go SDK (`github.com/github/copilot-sdk/go`) to run agents via `gt copilot run`, with session persistence, workspace sandboxing, and role-based prompt rendering out of the box.
 
 ### What Problem Does This Solve?
 
@@ -34,6 +36,15 @@ graph TB
     Rig2 --> Hooks2[Hooks]
     Rig2 --> Polecats2[Polecats]
 
+    subgraph Runtimes[Agent Runtimes]
+        CopilotSDK[GitHub Copilot SDK]
+        ClaudeCode[Claude Code]
+        Others[Gemini / Codex / ...]
+    end
+
+    Polecats1 -.runtime.-> Runtimes
+    Polecats2 -.runtime.-> Runtimes
+
     Hooks1 -.git worktree.-> GitRepo1[Git Repository]
     Hooks2 -.git worktree.-> GitRepo2[Git Repository]
 
@@ -47,7 +58,12 @@ graph TB
 
 ### The Mayor 🎩
 
-Your primary AI coordinator. The Mayor is a Claude Code instance with full context about your workspace, projects, and agents. **Start here** - just tell the Mayor what you want to accomplish.
+Your primary AI coordinator. The Mayor runs on your chosen runtime (GitHub Copilot SDK, Claude Code, or others) with full context about your workspace, projects, and agents. **Start here** — just tell the Mayor what you want to accomplish.
+
+```bash
+gt mayor attach                     # Start with default runtime
+gt mayor start --agent copilot      # Start with Copilot SDK
+```
 
 ### Town 🏘️
 
@@ -90,9 +106,9 @@ Git-backed issue tracking system that stores work state as structured data.
 - **beads (bd) 0.44.0+** - [github.com/steveyegge/beads](https://github.com/steveyegge/beads) (required for custom type support)
 - **sqlite3** - for convoy database queries (usually pre-installed on macOS/Linux)
 - **tmux 3.0+** - recommended for full experience
-- **Claude Code CLI** (default runtime) - [claude.ai/code](https://claude.ai/code)
-- **GitHub Copilot CLI** (optional runtime for Copilot SDK) - [docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli](https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli)
-- **Codex CLI** (optional runtime) - [developers.openai.com/codex/cli](https://developers.openai.com/codex/cli)
+- **GitHub Copilot CLI** (recommended runtime) - [docs.github.com/en/copilot](https://docs.github.com/en/copilot) — powers `gt copilot run`
+- **Claude Code CLI** (alternative runtime) - [claude.ai/code](https://claude.ai/code)
+- **Codex CLI** (alternative runtime) - [developers.openai.com/codex/cli](https://developers.openai.com/codex/cli)
 
 ### Setup
 
@@ -498,12 +514,14 @@ gt completion fish > ~/.config/fish/completions/gt.fish
 
 ## Tips
 
-- **Always start with the Mayor** - It's designed to be your primary interface
-- **Use convoys for coordination** - They provide visibility across agents
-- **Leverage hooks for persistence** - Your work won't disappear
-- **Create formulas for repeated tasks** - Save time with Beads recipes
-- **Monitor the dashboard** - Get real-time visibility
-- **Let the Mayor orchestrate** - It knows how to manage agents
+- **Always start with the Mayor** — It's designed to be your primary interface
+- **Try Copilot SDK first** — Run `gt copilot run` for a batteries-included experience with session persistence and workspace sandboxing
+- **Use convoys for coordination** — They provide visibility across agents
+- **Mix runtimes freely** — Use `--agent copilot` on one sling and `--agent claude` on another
+- **Leverage hooks for persistence** — Your work won't disappear
+- **Create formulas for repeated tasks** — Save time with Beads recipes
+- **Monitor the dashboard** — Get real-time visibility
+- **Let the Mayor orchestrate** — It knows how to manage agents
 
 ## Troubleshooting
 
