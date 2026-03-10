@@ -8,6 +8,13 @@
         "--header",
         "Authorization: Bearer ${V0_API_KEY}"
       ]
+    },
+    "drawio": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "drawio-mcp"
+      ]
     }
   }
 }
