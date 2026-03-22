@@ -1,0 +1,199 @@
+<mxfile host="65bd71144e" compressed="false">
+    <diagram name="Optum RCM Real MVP" id="optum-rcm-mvp-arch">
+        <mxGraphModel dx="1600" dy="1100" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1300" background="none" math="0" shadow="1">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+
+                <!-- ═══ TITLE ═══ -->
+                <mxCell id="title" value="Optum RCM Real MVP — Azure Architecture (One Page)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=22;fontStyle=1;fontColor=#0072C6;" parent="1" vertex="1">
+                    <mxGeometry x="250" y="14" width="1420" height="36" as="geometry"/>
+                </mxCell>
+                <mxCell id="subtitle" value="Resource Group: rg-optum-rcm-real-prod  |  Region: East US  |  4 Production Templates  |  Private Networking" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=11;fontColor=#555555;fontStyle=2;" parent="1" vertex="1">
+                    <mxGeometry x="250" y="46" width="1420" height="18" as="geometry"/>
+                </mxCell>
+
+                <!-- ═══ ZONE: OPERATIONS ROLES ═══ -->
+                <mxCell id="zone-users" value="Operations Roles" style="swimlane;startSize=26;fillColor=#f0f7ff;strokeColor=#4a6ee0;fontStyle=1;fontSize=12;fontColor=#4a6ee0;rounded=1;arcSize=3;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="74" width="160" height="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="user-billing" value="Billing&#xa;Reviewer" style="shape=image;imageAspect=0;aspect=fixed;image=Icons/general/10783-icon-service-Browser.svg;html=1;fontColor=#333;fontSize=10;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;" parent="zone-users" vertex="1">
+                    <mxGeometry x="10" y="36" width="44" height="44" as="geometry"/>
+                </mxCell>
+                <mxCell id="user-util" value="Utilization&#xa;Reviewer" style="shape=image;imageAspect=0;aspect=fixed;image=Icons/general/10783-icon-service-Browser.svg;html=1;fontColor=#333;fontSize=10;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;" parent="zone-users" vertex="1">
+                    <mxGeometry x="90" y="36" width="44" height="44" as="geometry"/>
+                </mxCell>
+                <mxCell id="user-finance" value="Finance&#xa;Reviewer" style="shape=image;imageAspect=0;aspect=fixed;image=Icons/general/10783-icon-service-Browser.svg;html=1;fontColor=#333;fontSize=10;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;" parent="zone-users" vertex="1">
+                    <mxGeometry x="10" y="118" width="44" height="44" as="geometry"/>
+                </mxCell>
+                <mxCell id="user-admin" value="Platform&#xa;Admin" style="shape=image;imageAspect=0;aspect=fixed;image=Icons/general/10783-icon-service-Browser.svg;html=1;fontColor=#333;fontSize=10;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;" parent="zone-users" vertex="1">
+                    <mxGeometry x="90" y="118" width="44" height="44" as="geometry"/>
+                </mxCell>
+                <mxCell id="user-entra-box" value="Microsoft Entra ID&#xa;SSO · RBAC · App Roles" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#4a6ee0;fontSize=9;" parent="zone-users" vertex="1">
+                    <mxGeometry x="8" y="210" width="144" height="44" as="geometry"/>
+                </mxCell>
+                <mxCell id="user-msal" value="MSAL Browser&#xa;OAuth2 PKCE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#4a6ee0;fontSize=9;" parent="zone-users" vertex="1">
+                    <mxGeometry x="8" y="264" width="144" height="40" as="geometry"/>
+                </mxCell>
+
+                <!-- ═══ ZONE: AZURE SUBSCRIPTION ═══ -->
+                <mxCell id="zone-azure" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f9ff;strokeColor=#0072C6;strokeWidth=2;dashed=1;arcSize=2;verticalAlign=top;fontSize=12;fontStyle=1;fontColor=#0072C6;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="74" width="1280" height="1200" as="geometry"/>
+                </mxCell>
+                <mxCell id="rg-label" value="rg-optum-rcm-real-prod" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontColor=#0072C6;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="210" y="78" width="200" height="16" as="geometry"/>
+                </mxCell>
+
+                <!-- ── ACCESS & SECURITY ── -->
+                <mxCell id="zone-access" value="Access &amp; Security Boundary" style="swimlane;startSize=24;fillColor=#e6ffe6;strokeColor=#007A00;fontStyle=1;fontSize=11;fontColor=#007A00;rounded=1;arcSize=3;" parent="1" vertex="1">
+                    <mxGeometry x="220" y="102" width="1240" height="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="apim-icon" value="Azure API Management&#xa;Internal gateway · JWT validation&#xa;Rate limiting · Audit headers" style="shape=image;imageAspect=0;aspect=fixed;image=Icons/integration/10042-icon-service-API-Management-Services.svg;html=1;fontColor=#333;fontSize=10;labelPosition=right;verticalLabelPosition=middle;verticalAlign=middle;align=left;spacingLeft=6;" parent="zone-access" vertex="1">
+                    <mxGeometry x="20" y="36" width="50" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="entra-icon" value="Microsoft Entra ID&#xa;App registration · Managed identity&#xa;JWT issuance · App role mapping" style="shape=image;imageAspect=0;aspect=fixed;image=Icons/identity/10231-icon-service-Entra-ID-Protection.svg;html=1;fontColor=#333;fontSize=10;labelPosition=right;verticalLabelPosition=middle;verticalAlign=middle;align=left;spacingLeft=6;" parent="zone-access" vertex="1">
+                    <mxGeometry x="20" y="100" width="50" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="vnet-icon" value="Virtual Network&#xa;Private Endpoints · Private DNS&#xa;App subnet · Integration subnet · PE subnet" style="shape=image;imageAspect=0;aspect=fixed;image=Icons/networking/10061-icon-service-Virtual-Networks.svg;html=1;fontColor=#333;fontSize=10;labelPosition=right;verticalLabelPosition=middle;verticalAlign=middle;align=left;spacingLeft=6;" parent="zone-access" vertex="1">
+                    <mxGeometry x="620" y="36" width="50" height="50" as="geometry"/>
+                </mxCell>
+
+                <!-- ── APPLICATION TIER ── -->
+                <mxCell id="zone-app" value="Application Tier" style="swimlane;startSize=24;fillColor=#dcfce7;strokeColor=#16a34a;fontStyle=1;fontSize=11;fontColor=#16a34a;rounded=1;arcSize=3;" parent="1" vertex="1">
+                    <mxGeometry x="220" y="290" width="610" height="280" as="geometry"/>
+                </mxCell>
+                <mxCell id="web-box" value="Azure Container Apps&#xa;Internal Operations Console&#xa;&#xa;• Work queue dashboard&#xa;• Case detail and approval actions&#xa;• Template launch&#xa;• Execution monitor&#xa;• Governance / audit view" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#16a34a;fontSize=10;align=left;" parent="zone-app" vertex="1">
+                    <mxGeometry x="14" y="34" width="270" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="func-box" value="Azure Functions (Flex Consumption)&#xa;Orchestration API &amp; Connectors&#xa;&#xa;• POST /executions (start workflow)&#xa;• POST /executions/:id/approve&#xa;• POST /executions/:id/resume&#xa;• GET  /templates&#xa;• GET  /tasks (work queue)&#xa;• Connector facade endpoints" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#16a34a;fontSize=10;align=left;" parent="zone-app" vertex="1">
+                    <mxGeometry x="310" y="34" width="280" height="148" as="geometry"/>
+                </mxCell>
+                <mxCell id="acr-box" value="ACR&#xa;Web image" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#16a34a;fontSize=9;" parent="zone-app" vertex="1">
+                    <mxGeometry x="14" y="180" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="storage-box" value="Storage Account&#xa;Functions runtime" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#16a34a;fontSize=9;" parent="zone-app" vertex="1">
+                    <mxGeometry x="120" y="180" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="engine-box" value="Orchestration Engine&#xa;StateMachine · PatternHandlers&#xa;PolicyEngine · ExecutionContext" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbf7d0;strokeColor=#16a34a;fontSize=9;fontStyle=1;" parent="zone-app" vertex="1">
+                    <mxGeometry x="310" y="200" width="280" height="52" as="geometry"/>
+                </mxCell>
+
+                <!-- ── WORKFLOW RUNTIME ── -->
+                <mxCell id="zone-runtime" value="Workflow Runtime" style="swimlane;startSize=24;fillColor=#f3e8ff;strokeColor=#9333ea;fontStyle=1;fontSize=11;fontColor=#9333ea;rounded=1;arcSize=3;" parent="1" vertex="1">
+                    <mxGeometry x="220" y="590" width="1240" height="280" as="geometry"/>
+                </mxCell>
+                <mxCell id="cosmos-box" value="Azure Cosmos DB (NoSQL — Autoscale)&#xa;&#xa;Containers:&#xa;  • templates      (/tenantId)&#xa;  • executions     (/tenantId)&#xa;  • tasks          (/assignedRole)&#xa;  • audit-log      (/executionId)&#xa;  • case-snapshots (/caseId)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3e8ff;strokeColor=#9333ea;fontSize=10;align=left;" parent="zone-runtime" vertex="1">
+                    <mxGeometry x="14" y="34" width="350" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="servicebus-box" value="Azure Service Bus (Standard)&#xa;&#xa;Queues:&#xa;  • workflow-resume&#xa;  • connector-jobs&#xa;  • approval-events&#xa;  • dead-letter monitoring" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3e8ff;strokeColor=#9333ea;fontSize=10;align=left;" parent="zone-runtime" vertex="1">
+                    <mxGeometry x="390" y="34" width="280" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="foundry-box" value="Azure AI Foundry&#xa;&#xa;  • Approved model allowlist&#xa;  • 2-4 model deployments&#xa;    (summarization, structured&#xa;     output, reasoning)&#xa;  • Agent capabilities&#xa;  • Telemetry link" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3e8ff;strokeColor=#9333ea;fontSize=10;align=left;" parent="zone-runtime" vertex="1">
+                    <mxGeometry x="700" y="34" width="280" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="templates-box" value="4 Production Templates&#xa;&#xa;1. Eligibility Verification&#xa;2. Prior Authorization&#xa;3. Claims Submission&#xa;4. Payment Posting &amp; Reconciliation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ede9fe;strokeColor=#7c3aed;fontSize=10;align=left;fontStyle=1;" parent="zone-runtime" vertex="1">
+                    <mxGeometry x="14" y="200" width="350" height="68" as="geometry"/>
+                </mxCell>
+
+                <!-- ── MONITORING & SECRETS ── -->
+                <mxCell id="zone-ops" value="Secrets, Monitoring &amp; Alerts" style="swimlane;startSize=24;fillColor=#fff7ed;strokeColor=#ea580c;fontStyle=1;fontSize=11;fontColor=#ea580c;rounded=1;arcSize=3;" parent="1" vertex="1">
+                    <mxGeometry x="220" y="890" width="610" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="kv-box" value="Azure Key Vault&#xa;Connector secrets · Certs&#xa;Cosmos RBAC · Payer credentials" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff7ed;strokeColor=#ea580c;fontSize=10;align=left;" parent="zone-ops" vertex="1">
+                    <mxGeometry x="14" y="34" width="270" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="insights-box" value="Application Insights + Log Analytics&#xa;Workflow telemetry · Connector traces&#xa;SLA dashboards · Failure alerts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff7ed;strokeColor=#ea580c;fontSize=10;align=left;" parent="zone-ops" vertex="1">
+                    <mxGeometry x="310" y="34" width="280" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="alerts-box" value="Azure Monitor Alerts + Action Groups&#xa;Queue depth · Workflow failures · Connector outages" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff7ed;strokeColor=#ea580c;fontSize=10;align=left;" parent="zone-ops" vertex="1">
+                    <mxGeometry x="14" y="106" width="576" height="38" as="geometry"/>
+                </mxCell>
+
+                <!-- ═══ ZONE: ENTERPRISE SYSTEMS ═══ -->
+                <mxCell id="zone-enterprise" value="Enterprise Systems (External)" style="swimlane;startSize=24;fillColor=#f1f5f9;strokeColor=#64748b;fontStyle=1;fontSize=12;fontColor=#64748b;rounded=1;arcSize=3;" parent="1" vertex="1">
+                    <mxGeometry x="860" y="290" width="600" height="280" as="geometry"/>
+                </mxCell>
+                <mxCell id="ehr-box" value="EHR / FHIR APIs&#xa;Patient, encounter, orders,&#xa;clinical documentation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#64748b;fontSize=10;align=left;" parent="zone-enterprise" vertex="1">
+                    <mxGeometry x="14" y="34" width="260" height="56" as="geometry"/>
+                </mxCell>
+                <mxCell id="payer-box" value="Payer Portal / Prior Auth Gateway&#xa;Auth submissions, status polling,&#xa;determination callbacks" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#64748b;fontSize=10;align=left;" parent="zone-enterprise" vertex="1">
+                    <mxGeometry x="300" y="34" width="280" height="56" as="geometry"/>
+                </mxCell>
+                <mxCell id="ch-box" value="Clearinghouse&#xa;837P submission, claim status,&#xa;acknowledgments" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#64748b;fontSize=10;align=left;" parent="zone-enterprise" vertex="1">
+                    <mxGeometry x="14" y="106" width="260" height="56" as="geometry"/>
+                </mxCell>
+                <mxCell id="era-box" value="ERA 835 / Payment Feeds&#xa;Remittance advice, payment data,&#xa;adjustment codes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#64748b;fontSize=10;align=left;" parent="zone-enterprise" vertex="1">
+                    <mxGeometry x="300" y="106" width="280" height="56" as="geometry"/>
+                </mxCell>
+                <mxCell id="fee-box" value="Fee Schedule / Rules Engine&#xa;Expected reimbursement, NCCI edits,&#xa;LCD/NCD policies" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#64748b;fontSize=10;align=left;" parent="zone-enterprise" vertex="1">
+                    <mxGeometry x="14" y="180" width="260" height="56" as="geometry"/>
+                </mxCell>
+                <mxCell id="wq-box" value="Internal Work Queue / ITSM&#xa;ServiceNow, Jira, or internal&#xa;task management" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#64748b;fontSize=10;align=left;" parent="zone-enterprise" vertex="1">
+                    <mxGeometry x="300" y="180" width="280" height="56" as="geometry"/>
+                </mxCell>
+
+                <!-- ═══ ZONE: IaC / CI/CD ═══ -->
+                <mxCell id="zone-cicd" value="IaC &amp; Deployment" style="swimlane;startSize=24;fillColor=#fef2f2;strokeColor=#dc2626;fontStyle=1;fontSize=11;fontColor=#dc2626;rounded=1;arcSize=3;" parent="1" vertex="1">
+                    <mxGeometry x="860" y="890" width="600" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="bicep-box" value="Bicep IaC&#xa;infra/optum-rcm/&#xa;&#xa;• main.bicep&#xa;• modules/cosmos-rcm.bicep&#xa;• modules/servicebus.bicep&#xa;• modules/functions.bicep&#xa;• modules/keyvault.bicep&#xa;• modules/appinsights.bicep" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef2f2;strokeColor=#dc2626;fontSize=9;align=left;" parent="zone-cicd" vertex="1">
+                    <mxGeometry x="14" y="30" width="270" height="118" as="geometry"/>
+                </mxCell>
+                <mxCell id="azd-box" value="Azure Developer CLI (azd)&#xa;&#xa;azd up  →  provision + deploy&#xa;azd deploy --service api&#xa;Environment: optum-rcm-real-prod" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef2f2;strokeColor=#dc2626;fontSize=9;align=left;" parent="zone-cicd" vertex="1">
+                    <mxGeometry x="310" y="30" width="270" height="90" as="geometry"/>
+                </mxCell>
+
+                <!-- ═══ EDGES ═══ -->
+                <!-- Users → Web -->
+                <mxCell id="e-users-web" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#4a6ee0;strokeWidth=1.5;" parent="1" source="zone-users" target="web-box" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <!-- Web → APIM -->
+                <mxCell id="e-web-apim" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#007A00;strokeWidth=1.5;" parent="1" source="web-box" target="apim-icon" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <!-- APIM → Functions -->
+                <mxCell id="e-apim-func" value="API calls" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#007A00;strokeWidth=1.5;fontSize=9;" parent="1" source="apim-icon" target="func-box" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <!-- Functions → Cosmos -->
+                <mxCell id="e-func-cosmos" value="state / audit" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#9333ea;strokeWidth=1.5;fontSize=9;" parent="1" source="func-box" target="cosmos-box" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <!-- Functions → Service Bus -->
+                <mxCell id="e-func-sb" value="resume events" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#9333ea;strokeWidth=1.5;fontSize=9;" parent="1" source="func-box" target="servicebus-box" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <!-- Service Bus → Functions (return) -->
+                <mxCell id="e-sb-func" value="trigger" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#9333ea;strokeWidth=1;dashed=1;fontSize=9;" parent="1" source="servicebus-box" target="engine-box" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <!-- Functions → Foundry -->
+                <mxCell id="e-func-foundry" value="AI calls" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#9333ea;strokeWidth=1.5;fontSize=9;" parent="1" source="func-box" target="foundry-box" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <!-- Functions → Key Vault -->
+                <mxCell id="e-func-kv" value="secrets" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#ea580c;strokeWidth=1;fontSize=9;" parent="1" source="func-box" target="kv-box" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <!-- Functions → App Insights -->
+                <mxCell id="e-func-insights" value="telemetry" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#ea580c;strokeWidth=1;fontSize=9;" parent="1" source="func-box" target="insights-box" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <!-- Functions → Enterprise Systems -->
+                <mxCell id="e-func-ehr" value="FHIR" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748b;strokeWidth=1.5;fontSize=9;" parent="1" source="func-box" target="ehr-box" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e-func-payer" value="auth" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748b;strokeWidth=1.5;fontSize=9;" parent="1" source="func-box" target="payer-box" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e-func-ch" value="837P" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748b;strokeWidth=1;dashed=1;fontSize=9;" parent="1" source="engine-box" target="ch-box" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e-func-era" value="835" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748b;strokeWidth=1;dashed=1;fontSize=9;" parent="1" source="engine-box" target="era-box" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
